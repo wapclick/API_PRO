@@ -96,30 +96,16 @@ https://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=h
 | code | error | Описание
 | --- | --- | ---
 | 0 | ok | Подписка оформлена
-| 1 | invalid params | Неверные параметры
-| 2 | invalid auth | Неверный проверочный код
-| 3 | invalid provider auth (please, contact us) | Изменились настройки подключения
-| 4 | operator is not supported | Оператор не поддерживается
-| 5 | service not found | Сервис не определен или нет такого сервиса
-| 6 | service disabled | Сервис отключен
-| 7 | already | Абонент уже был подписан или отписан
-| 8 | billing failed: no money / fraud | У абонента нет денег / фрод
-| 9 | refuse | Абонент отказался от подписки
-| 10 | disabled by operator options for abonent / subscriptions banned | У абонента отключены опции подписок на стороне оператора
-| 11 | operator subscription service internal error | Ошибка на стороне оператора связи
-| 12 | pending | Ожидается действие от абонента
-| 13 | service internal error | Ошибка на стороне wapclick.online
-| 14 | invalid phone number / cannot find | Оператор на своей стороне не может определить номер телефона абонента
-| 15 | activation not finished | Активация не окончена
-| 16 | incorect activation code | Неверный код подтверждения от абонента
-| 17 | attempt count exceeded | Превышено количество попыток получения временной ссылки от оператора
-| 18 | expired | Превышено время ожидания действий от абонента
-| 19 | pending (wait confirmaton) | Абонент не завершил действие на стороне оператора
-| 20 | cannot find source | Источник не зарегистрирован
-| 21 | cannot find oferta | Оферта не найдена
-| 22 | device block | Устройство абонента не поддерживает подписки
-| 23 | service blacklisted | Чёрный список
-| 24 | phone blacklisted | Номер абонента находится в чёрном списке
+| 1 | invalid service settings (please, contact us) | Невалидные настройки сервиса, требуется их корректировка на стороне wapclick.com, просьба обратиться к нам
+| 2 | operator is not supported | Оператор не поддерживается
+| 3 | service not found | Сервис не найден
+| 4 | already subscribed | Абонент уже подписан на данный сервис
+| 5 | no money | У абонента нет денег
+| 6 | session broken | Сессия абонента прервана (таймаут, некорректный запрос)
+| 7 | operator internal error | Ошибка на стороне оператора связи
+| 8 | service internal error | Ошибка на стороне wapclick.com
+| 9 | service blacklisted | Подписка находится в чёрном списке
+| 10 | phone blacklisted | Номер абонента находится в чёрном списке
 
 ## 5. Уведомления о тарификациях
 
