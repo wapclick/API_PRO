@@ -31,7 +31,7 @@ WapClick – новая прогрессивная технология моби
 Партнёр делает GET запрос на адрес
 
 ```
-https://wapclick.mobi/init/sync/[идентификатор подписки].json
+http://wapclick.mobi/init/sync/[идентификатор подписки].json
 ```
 
 Обязательные параметры запроса
@@ -46,7 +46,7 @@ https://wapclick.mobi/init/sync/[идентификатор подписки].js
 Пример запроса
 
 ```
-https://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=https%3A%2F%2Fsite.com%2Fcontent
+http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=https%3A%2F%2Fsite.com%2Fcontent
 ```
 
 В ответ сервис возвращает статус обработки запроса в JSON формате
@@ -172,7 +172,7 @@ https://site.com/subscriptions?action=unsubscribe_report&service_id=1234&phone=7
 Пример запроса
 
 ```
-https://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=https%3A%2F%2Fsite.com%2Fcontent&utm_source=1&utm_medium=2&utm_campaign=3&utm_term=4&utm_content=5
+http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=https%3A%2F%2Fsite.com%2Fcontent&utm_source=1&utm_medium=2&utm_campaign=3&utm_term=4&utm_content=5
 ```
 
 ## 8. Контакты
