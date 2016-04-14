@@ -107,6 +107,7 @@ http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=ht
 | 9 | service blacklisted | Подписка находится в чёрном списке
 | 10 | phone blacklisted | Номер абонента находится в чёрном списке
 | 11 | missing required parameters | Не указаны обязательные параметры (проверьте изменения докуменации)
+| 12 | cancel of action | Отмена действия
 
 ## 5. Уведомления о тарификациях
 
