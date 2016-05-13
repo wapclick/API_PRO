@@ -55,8 +55,8 @@ http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=ht
 | --- | --- | --- | ---
 | p_data | varchar(100) | Идентификатор подписки в системе партнёра | 077dd9d0-690d-11e5-b533-0d1018f8ac82
 | redirect | varchar(1000) | Адрес для редиректа абонента | http://moipodpiski.ssl.mts.ru/lp/?SID=09565fc2-6dcf-11e5-9242-f933a6d11a80&IsMobile=Y
-| code | int | Статус подписки (п. 4) | 0
-| error | varchar(30) | Расшифровка статуса подписки (п. 4) | ok
+| code | int | Статус подписки (п. 5) | 0
+| error | varchar(30) | Расшифровка статуса подписки (п. 5) | ok
 
 Пример
 
@@ -109,7 +109,30 @@ http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=ht
 | 11 | missing required parameters | Не указаны обязательные параметры (проверьте изменения докуменации)
 | 12 | cancel of action | Отмена действия
 
-## 5. Уведомления о тарификациях
+## 5. Уведомления о статусе подписки
+
+wapclick.com уведомляет партнера о статусе подписки абонента.
+
+Уведомление - GET-запрос с параметрами на скрипт партнёра.
+
+| Параметр | Тип | Описание | Пример
+| --- | --- | --- | ---
+| action | varchar(30) | Тип уведомления - отписка | subscribe_report
+| service_id | integer | Идентификатор подписки | 1234
+| phone | bigint | Номер телефона абонента (может быть не передан) | 79031234567
+| tid | varchar(100) | Идентификатор транзакции | 08057700-690d-11e5-b610-321018f8ac82
+| p_data | varchar(100) | Идентификатор подписки в системе партнёра (может быть не передан, если не использовался) | 077dd9d0-690d-11e5-b533-0d1018f8ac82
+| operator | varchar(30) | Код оператора | beeline
+| code | int | Статус подписки | 0
+| sign | char(64) | Подпись запроса sha256(action+service_id+phone+tid+p_data+code+operator+secret_key). Если phone или p_data не использовались, то они не участвуют в формировании подписи | 68e656b251e67e8358bef8483ab0d51c6619f3e7a1a9f0e75838d41ff368f728
+
+Пример уведомления
+
+```
+https://site.com/subscriptions?action=unsubscribe_report&service_id=1234&phone=79031234567&tid=077dd9d0-690d-11e5-b533-0d1018f8ac82&p_data=077dd9d0-690d-11e5-b533-0d1018f8ac82&operator=beeline&code=0&sign=68e656b251e67e8358bef8483ab0d51c6619f3e7a1a9f0e75838d41ff368f728
+```
+
+## 6. Уведомления о тарификациях
 
 wapclick.online уведомляет партнера об успешных списаниях денежных средств со счета абонента.
 
@@ -137,7 +160,7 @@ wapclick.online уведомляет партнера об успешных сп
 https://site.com/subscriptions?action=charge_report&status=0&phone=79031234567&op=beeline&c_amount=100.01&amount=100.01&c_pay=50.01&pay=50.01&c_curr=RUB&curr=RUB&tid=08057700-690d-11e5-b610-321018f8ac82&p_data=077dd9d0-690d-11e5-b533-0d1018f8ac82&service_id=1234
 ````
 
-## 6. Уведомления об отписках
+## 7. Уведомления об отписках
 
 wapclick.online уведомляет партнера об отписке абонента.
 
@@ -158,7 +181,7 @@ wapclick.online уведомляет партнера об отписке або
 https://site.com/subscriptions?action=unsubscribe_report&service_id=1234&phone=79031234567&tid=077dd9d0-690d-11e5-b533-0d1018f8ac82&p_data=077dd9d0-690d-11e5-b533-0d1018f8ac82&sign=68e656b251e67e8358bef8483ab0d51c6619f3e7a1a9f0e75838d41ff368f728
 ```
 
-## 7. Оценка конверсии
+## 8. Оценка конверсии
 
 Система поддерживает UTM метки. Для их использования нужно передавать параметры в запросе инициации подписки (п. 2.1). Метки будут доступны для выборки в личном кабинете.
 
@@ -176,7 +199,7 @@ https://site.com/subscriptions?action=unsubscribe_report&service_id=1234&phone=7
 http://wapclick.mobi/init/sync/12187.json?ip=213.87.249.227&p_data=1&back_url=https%3A%2F%2Fsite.com%2Fcontent&utm_source=1&utm_medium=2&utm_campaign=3&utm_term=4&utm_content=5
 ```
 
-## 8. Контакты
+## 9. Контакты
 
 С вопросами обращайтесь по почте [support@wapclick.online](mailto:support@wapclick.online)
 
